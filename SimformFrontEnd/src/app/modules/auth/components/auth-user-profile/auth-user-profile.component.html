@@ -1,0 +1,105 @@
+<div class="container emp-profile">
+    <div class="row">
+        <div class="col-2 offset-10">
+            <button type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+        </div>
+    </div>
+    <form method="post" *ngIf="userProfile" [formGroup]="userProfileForm" (submit)="updateProfile()" autocomplete="off">
+        <div class="row">
+            <div class="col-12">
+                <div class="row justify-content-center">
+                    <div class="col-5">
+                        <div class="profile-img">
+                            <img [src]="profilePic" alt="" width="150px" height="150px" />
+                            <div class="file btn btn-lg btn-primary" *ngIf="isEdit">
+                                Change Photo
+                                <input type="file" name="file" accept="image/png, image/jpg, image/jpeg"
+                                    (change)="readURL($event)" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-12 ">
+                <div class="row py-3 justify-content-center">
+                    <div class="col-md-5 col-12">
+                        <div class="profile-head">
+                            <h5 class="text-center">
+                                {{userProfile.firstName}} {{userProfile.lastName}}
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-5 col-12 text-center">
+                        <button type="button" class="profile-edit-btn" name="btnAddMore" (click)="enableEdit()"> {{
+                            isEdit ? "Disable Edit Profile" : "Edit Profile"}} </button>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-6  col-sm-8 col-10">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                                <div class="row my-2">
+                                    <div class="col-md-6">
+                                        <label>First Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div *ngIf="isEdit">
+                                            <input type="text" class="form-control" formControlName="firstName"
+                                                name="firstName" id="firstName">
+                                        </div>
+
+                                        <p *ngIf="!isEdit">{{userProfile.firstName}}</p>
+                                    </div>
+                                </div>
+                                <div class="row my-2">
+                                    <div class="col-md-6">
+                                        <label>Last Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div *ngIf="isEdit">
+                                            <input type="text" class="form-control" formControlName="lastName"
+                                                name="lastName" id="lastName">
+                                        </div>
+                                        <p *ngIf="!isEdit">{{userProfile.lastName}}</p>
+                                    </div>
+                                </div>
+                                <div class="row my-2">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{userProfile.email}}</p>
+                                    </div>
+                                </div>
+                                <div class="row my-2" *ngIf="isEdit">
+                                    <div class="col-md-6">
+                                        <label>Password</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div >
+                                            <input type="password" class="form-control" formControlName="password"
+                                                name="password" id="password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center" *ngIf="isEdit">
+                                    <div class="col-6">
+                                        <button type="submit" class="btn btn-outline-warning" [disabled]="isLoading">
+                                            <i *ngIf="isLoading" class="fa fa-refresh fa-spin"></i>
+                                            Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+</div>
