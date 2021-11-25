@@ -6,3 +6,6 @@ There is SimformBackend Language use Node js, for Backend need to create .env fi
 
 
 For both run we can go to there directory frontend and backend, and we can run cmd npm start to start project
+
+
+Database user for Backend is mongodb so setup mongodb and pass its credentials using .env file
