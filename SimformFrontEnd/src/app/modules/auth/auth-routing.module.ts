@@ -7,7 +7,6 @@ import { AuthUserProfileComponent } from './components/auth-user-profile/auth-us
 
 
 const routes: Routes = [
-  {path: '', component: AuthLoginComponent},
   {path: 'login', component: AuthLoginComponent},
   {path: 'signup', component: AuthSignupComponent},
   {path: 'profile', component: AuthUserProfileComponent, canActivate: [AuthGuardService]}
