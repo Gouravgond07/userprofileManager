@@ -11,7 +11,7 @@ let keys = {
   mongodbConfig: {
     host: process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || '27017',
-    dbName: process.env.DB_NAME || 'dravya',
+    dbName: process.env.DB_NAME || 'simform',
     user: process.env.MONGO_USER || '',
     pass: process.env.MONGO_PASS || '',
     MONGO_ENVIRONMENT: process.env.MONGO_ENVIRONMENT || 'dev'

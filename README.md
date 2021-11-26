@@ -1,7 +1,7 @@
 Requisite
 1. Node js and npm
 2. Angular CLI
-3. Mongodb
+3. Mongodb (Create database that is defined in .env)
 
 ** Start Backend Steps **
 1. Go to the directory SimformBackend
